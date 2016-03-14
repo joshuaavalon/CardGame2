@@ -12,7 +12,6 @@ GameObject:
   - 114: {fileID: 11409208}
   - 222: {fileID: 22255266}
   - 114: {fileID: 11493458}
-  - 114: {fileID: 11455474}
   - 114: {fileID: 11465586}
   m_Layer: 5
   m_Name: Button
@@ -69,25 +68,6 @@ MonoBehaviour:
     m_DisabledTrigger: 44697361626c6564
   m_TargetGraphic: {fileID: 11491548}
   m_TargetGameObject: {fileID: 0}
---- !u!114 &11455474
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 112820}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a10c8b0272ac0b444b2896a780d18820, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Offset: {x: 0, y: 0}
-  m_Borders:
-    m_Left: 12
-    m_Right: 12
-    m_Top: 12
-    m_Bottom: 12
-  m_ScaleX: 1
-  m_ScaleY: 1
 --- !u!114 &11465586
 MonoBehaviour:
   m_ObjectHideFlags: 1

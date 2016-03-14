@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using Assets.Scripts.Core;
 using Assets.Scripts.Metadata;
+using Assets.Scripts.Utility;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;

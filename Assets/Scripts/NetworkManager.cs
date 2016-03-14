@@ -2,7 +2,6 @@ using System.Linq;
 using Assets.Scripts.Core;
 using Assets.Scripts.DeckEdit;
 using Assets.Scripts.Gui.Menu;
-using Assets.Scripts.Metadata;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -11,19 +10,18 @@ namespace Assets.Scripts
 {
     public class NetworkManager : MonoBehaviour
     {
+        private bool _showWarning = true;
         public Button CancelButton;
         public Button CreateButton;
         public Button NewButton;
         public GameObject RoomListItem;
         public Text RoomNameInputField;
         public GameObject ScrollViewContent;
-        private bool _showWarning=true;
-        private static NetworkManager _single;
 
         private void Start()
         {
             PhotonNetwork.ConnectUsingSettings("0.5");
-            DeckManager.LoadToDeck();
+            DeckHandler.LoadFromSaveToDeck();
         }
 
         private void Awake()
@@ -52,12 +50,12 @@ namespace Assets.Scripts
                     var roomListItem = Instantiate(RoomListItem);
                     var texts = roomListItem.GetComponentsInChildren<Text>();
                     texts[0].text = room.name;
-                    texts[1].text = room.playerCount + " / 2"+ (room.playerCount==2? " <b><color=#AA3330FF>FULL</color></b>":"");
-                    roomListItem.transform.SetParent(ScrollViewContent.transform);
+                    texts[1].text = room.playerCount + " / 2" +
+                                    (room.playerCount == 2 ? " <b><color=#AA3330FF>FULL</color></b>" : "");
+                    roomListItem.transform.SetParent(ScrollViewContent.transform, false);
                     var button = roomListItem.GetComponentsInChildren<Button>()[1];
                     button.interactable = room.playerCount < 2;
                     button.onClick.AddListener(() => { PhotonNetwork.JoinRoom(room.name); });
-                    roomListItem.transform.localScale = Vector3.one;
                 }
             }
         }
@@ -86,12 +84,7 @@ namespace Assets.Scripts
                 CreateButton.interactable = true;
             }
         }
-
-        private void OnEnterEdit()
-        {
-            SceneManager.LoadScene("Edit");
-        }
-
+        
         private void OnLeftRoom()
         {
             if (CancelButton != null)

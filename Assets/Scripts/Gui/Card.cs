@@ -18,8 +18,8 @@ namespace Assets.Scripts.Gui
 
         private string _id = "";
         private bool _isFront;
-
         public Sprite Image;
+        public Sprite Thumbnail;
         public Statistics Stats; // For grouping in inspector
         public UnitType[] Tags;
         public TargetType Target;

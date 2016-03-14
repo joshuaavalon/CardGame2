@@ -16,5 +16,6 @@ namespace Assets.Scripts.Metadata
         public static readonly string HP = "HP";
         public static readonly string ATK = "ATK";
         public static readonly string Audio = "Audio";
+        public static readonly string MessageHandler = "MessageHandler";
     }
 }

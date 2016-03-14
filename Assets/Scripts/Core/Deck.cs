@@ -51,6 +51,11 @@ namespace Assets.Scripts.Core
             return 5;
         }
 
+        public int MaxOfSingle()
+        {
+            return 2;
+        }
+
         public bool EnoughCard()
         {
             return Count() == RequireCard();
