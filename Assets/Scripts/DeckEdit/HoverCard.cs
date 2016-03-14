@@ -9,7 +9,7 @@ namespace Assets.Scripts.DeckEdit
     public class HoverCard : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
     {
         private DeckHandler _deckHandler;
-        private GameObject _hover;
+        private static GameObject _hover;
 
         [HideInInspector] public int Attack;
         [HideInInspector] public int Hp;
@@ -19,6 +19,8 @@ namespace Assets.Scripts.DeckEdit
 
         public void OnPointerEnter(PointerEventData eventData)
         {
+            if (_hover != null)
+                Destroy(_hover.gameObject);
             _hover = Instantiate(_deckHandler.HoverCardPrefab);
             _hover.GetComponent<Image>().sprite = Image;
             _hover.transform.SetParent(transform, false);
@@ -47,6 +49,7 @@ namespace Assets.Scripts.DeckEdit
                     text.text = Type == CardType.Unit ? Hp.ToString() : "";
             }
             _hover.transform.SetParent(GetComponentInParent<Canvas>().gameObject.transform, false);
+
         }
 
 

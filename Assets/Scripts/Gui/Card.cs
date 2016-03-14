@@ -14,7 +14,7 @@ namespace Assets.Scripts.Gui
     {
         private Image _cardImage;
         private GuiMediator _guiMediator;
-        private GameObject _hover;
+        private static GameObject _hover;
 
         private string _id = "";
         private bool _isFront;
@@ -58,7 +58,8 @@ namespace Assets.Scripts.Gui
         public void OnPointerEnter(PointerEventData eventData)
         {
             if (!_isFront) return;
-
+            if (_hover != null)
+                Destroy(_hover.gameObject);
             _hover = Instantiate(_guiMediator.HoverCard);
             _hover.GetComponent<Image>().sprite = GetComponent<Image>().sprite;
             _hover.transform.SetParent(transform, false);

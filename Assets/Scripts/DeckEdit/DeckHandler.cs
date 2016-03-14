@@ -16,7 +16,6 @@ namespace Assets.Scripts.DeckEdit
         private IDictionary<string, CardThumb> _cardObjects;
         private IList<string> _cardPool;
         private Deck _deck;
-        private bool _initial;
         private MessageHandler _messageHandler;
         public GameObject CardImagePrefab;
         public Transform CardList;
@@ -27,7 +26,7 @@ namespace Assets.Scripts.DeckEdit
         public Image ProgressBar;
         public Text ProgressText;
 
-        private void Start()
+        private void Awake()
         {
             _messageHandler = GameObject.FindGameObjectWithTag(Tag.MessageHandler).GetComponent<MessageHandler>();
             _deck = Deck.Get();
@@ -41,8 +40,6 @@ namespace Assets.Scripts.DeckEdit
             _cardList = new Dictionary<string, int>();
             _cardObjects = new Dictionary<string, CardThumb>();
             FinishButton.interactable = false;
-            _initial = true;
-            Load();
         }
 
         private void AddCardToPool(string cardName)
@@ -149,7 +146,7 @@ namespace Assets.Scripts.DeckEdit
             FinishButton.interactable = TotalCardCount() == _deck.RequireCard();
         }
 
-        private void LoadToDeck()
+        public void LoadToDeck()
         {
             _deck.Clear();
             var list = new List<string>();
@@ -213,13 +210,7 @@ namespace Assets.Scripts.DeckEdit
 
         public void OnEnable()
         {
-            if (_initial)
-                Load();
-        }
-
-        public void OnDisable()
-        {
-            LoadToDeck();
+            Load();
         }
     }
 }
