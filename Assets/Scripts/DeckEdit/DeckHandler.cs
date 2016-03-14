@@ -54,6 +54,7 @@ namespace Assets.Scripts.DeckEdit
             cardImage.GetComponent<Image>().sprite = cardCom.Image;
             cardImage.transform.SetParent(CardPool, false);
             cardImage.GetComponent<Button>().onClick.AddListener(() => { AddCard(cardName); });
+            SetHover(cardImage.GetComponent<HoverCard>(), cardCom, false);
         }
 
         private void AddCardsToList()
@@ -62,6 +63,15 @@ namespace Assets.Scripts.DeckEdit
             {
                 AddCardToList(keyPair.Key, keyPair.Value);
             }
+        }
+
+        private static void SetHover(HoverCard hover, Card card, bool isThumb)
+        {
+            hover.Attack = card.Stats.Atk;
+            hover.Hp = card.Stats.Hp;
+            hover.Type = card.Type;
+            hover.Image = card.Image;
+            hover.IsThumb = isThumb;
         }
 
         private void AddCardToList(string cardName, int count = 1)
@@ -75,6 +85,7 @@ namespace Assets.Scripts.DeckEdit
             cardThumb.Count.text = count.ToString();
             _cardObjects.Add(new KeyValuePair<string, CardThumb>(cardName, cardThumb));
             cardThumb.GetComponent<Button>().onClick.AddListener(() => { RemoveCard(cardName); });
+            SetHover(cardThumb.GetComponent<HoverCard>(), cardCom, true);
         }
 
         private void AddCard(string cardName)

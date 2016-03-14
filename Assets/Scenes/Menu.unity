@@ -153,7 +153,7 @@ MonoBehaviour:
   m_StartCorner: 0
   m_StartAxis: 0
   m_CellSize: {x: 100, y: 125}
-  m_Spacing: {x: 0, y: 0}
+  m_Spacing: {x: 0, y: 20}
   m_Constraint: 0
   m_ConstraintCount: 2
 --- !u!1 &3718095
@@ -5815,6 +5815,12 @@ RectTransform:
   m_PrefabParentObject: {fileID: 22434246, guid: af30d65839776f94da1a3ef07882588d,
     type: 2}
   m_PrefabInternal: {fileID: 603134496}
+--- !u!114 &607686765 stripped
+MonoBehaviour:
+  m_PrefabParentObject: {fileID: 11412398, guid: 7170b818565d15949a545f17dd0862cd,
+    type: 2}
+  m_PrefabInternal: {fileID: 749881411}
+  m_Script: {fileID: 11500000, guid: 7a3029afeffdc0c4ca505687d380d153, type: 3}
 --- !u!1 &626640850
 GameObject:
   m_ObjectHideFlags: 0
@@ -6585,7 +6591,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 412400, guid: 7170b818565d15949a545f17dd0862cd, type: 2}
       propertyPath: m_LocalPosition.y
-      value: 15
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 412400, guid: 7170b818565d15949a545f17dd0862cd, type: 2}
       propertyPath: m_LocalPosition.z
@@ -6601,11 +6607,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 412400, guid: 7170b818565d15949a545f17dd0862cd, type: 2}
       propertyPath: m_LocalRotation.z
-      value: 0.8788172
+      value: 0.976296
       objectReference: {fileID: 0}
     - target: {fileID: 412400, guid: 7170b818565d15949a545f17dd0862cd, type: 2}
       propertyPath: m_LocalRotation.w
-      value: 0.4771587
+      value: 0.21643953
       objectReference: {fileID: 0}
     - target: {fileID: 412400, guid: 7170b818565d15949a545f17dd0862cd, type: 2}
       propertyPath: m_RootOrder
@@ -6629,6 +6635,14 @@ Prefab:
       objectReference: {fileID: 1924053552}
     - target: {fileID: 11412398, guid: 7170b818565d15949a545f17dd0862cd, type: 2}
       propertyPath: OrbitRate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11412398, guid: 7170b818565d15949a545f17dd0862cd, type: 2}
+      propertyPath: RotationRate
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11412398, guid: 7170b818565d15949a545f17dd0862cd, type: 2}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -9573,7 +9587,7 @@ GameObject:
   - 114: {fileID: 1269657035}
   m_Layer: 0
   m_Name: Deck Handler
-  m_TagString: Untagged
+  m_TagString: DeckHandler
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -12396,7 +12410,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 424944, guid: 99aa3402e68304b42aab017c7d19efe2, type: 2}
       propertyPath: m_RootOrder
-      value: 15
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 11437638, guid: 99aa3402e68304b42aab017c7d19efe2, type: 2}
       propertyPath: Canvas
@@ -13065,6 +13079,7 @@ MonoBehaviour:
   AutoUpdate: 1
   Planets:
   - {fileID: 582315721}
+  - {fileID: 607686765}
   - {fileID: 1093487907}
   - {fileID: 1110544070}
   - {fileID: 1181023172}
