@@ -19,8 +19,6 @@ namespace Assets.Scripts.DeckEdit
 
         public void OnPointerEnter(PointerEventData eventData)
         {
-            if (_hover != null)
-                Destroy(_hover.gameObject);
             _hover = Instantiate(_deckHandler.HoverCardPrefab);
             _hover.GetComponent<Image>().sprite = Image;
             _hover.transform.SetParent(transform, false);
@@ -55,13 +53,18 @@ namespace Assets.Scripts.DeckEdit
 
         public void OnPointerExit(PointerEventData eventData)
         {
-            if (_hover != null)
-                Destroy(_hover.gameObject);
+            DeleteHover();
         }
 
         private void Start()
         {
             _deckHandler = GameObject.FindGameObjectWithTag(Tag.DeckHandler).GetComponent<DeckHandler>();
+        }
+
+        public static void DeleteHover()
+        {
+            if (_hover != null)
+                Destroy(_hover.gameObject);
         }
     }
 }

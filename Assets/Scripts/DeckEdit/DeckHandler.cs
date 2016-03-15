@@ -126,6 +126,7 @@ namespace Assets.Scripts.DeckEdit
                 _cardList.Remove(cardName);
                 Destroy(_cardObjects[cardName].gameObject);
                 _cardObjects.Remove(cardName);
+                HoverCard.DeleteHover();
             }
             UpdateProgress();
         }
