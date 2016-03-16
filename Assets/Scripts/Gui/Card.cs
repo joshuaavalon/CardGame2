@@ -63,6 +63,7 @@ namespace Assets.Scripts.Gui
             _hover = Instantiate(_guiMediator.HoverCard);
             _hover.GetComponent<Image>().sprite = GetComponent<Image>().sprite;
             _hover.transform.SetParent(transform, false);
+            _hover.name = Id;
 
             var texts = _hover.GetComponentsInChildren<Text>();
             foreach (var text in texts)
@@ -147,6 +148,12 @@ namespace Assets.Scripts.Gui
         public class Statistics
         {
             public int Hp, Atk, Metal, Crystal, Deuterium;
+        }
+
+        private void OnDestroy()
+        {
+            if (_hover != null&&_hover.name==Id)
+                Destroy(_hover.gameObject);
         }
     }
 }

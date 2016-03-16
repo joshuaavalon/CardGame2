@@ -8,6 +8,7 @@ namespace Assets.Scripts.Gui
         public Camera Camera;
         public Transform Destination;
         public float Speed = 0.1f;
+        private const float Threshold = 0.015f;
         public float Zoom = 1.0f;
 
         private void Start()
@@ -15,14 +16,15 @@ namespace Assets.Scripts.Gui
             _previousPosition = transform.position;
         }
 
-        // Update is called once per frame
+
         private void Update()
         {
-            transform.position = Vector3.Lerp(transform.position, Destination.position, Speed);
-            transform.rotation = Quaternion.Slerp(transform.rotation, Destination.rotation, Speed);
+            transform.position = Vector3.Lerp(transform.position, Destination.position, Speed* Time.deltaTime);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Destination.rotation, Speed* Time.deltaTime);
             var velocity = Vector3.Magnitude(transform.position - _previousPosition);
             Camera.fieldOfView = 60 + (velocity > 0.01 ? velocity : 0)*Zoom;
             _previousPosition = transform.position;
+
         }
     }
 }
