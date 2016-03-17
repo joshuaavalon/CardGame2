@@ -4,27 +4,33 @@ namespace Assets.Scripts.Gui
 {
     public class MoveCamera : MonoBehaviour
     {
-        private Vector3 _previousPosition;
+        private float _i;
+        private Vector3 _previous;
         public Camera Camera;
         public Transform Destination;
-        public float Speed = 0.1f;
-        private const float Threshold = 0.015f;
+        public float TimeSpan = 5f;
         public float Zoom = 1.0f;
 
         private void Start()
         {
-            _previousPosition = transform.position;
+            _previous = transform.position;
         }
-
 
         private void Update()
         {
-            transform.position = Vector3.Lerp(transform.position, Destination.position, Speed* Time.deltaTime);
-            transform.rotation = Quaternion.Slerp(transform.rotation, Destination.rotation, Speed* Time.deltaTime);
-            var velocity = Vector3.Magnitude(transform.position - _previousPosition);
-            Camera.fieldOfView = 60 + (velocity > 0.01 ? velocity : 0)*Zoom;
-            _previousPosition = transform.position;
-
+            if (transform.position == Destination.position)
+                return;
+            if (_previous != Destination.position)
+            {
+                _i = 0;
+                _previous = Destination.position;
+            }
+            var rate = 1/TimeSpan;
+            _i += Time.deltaTime*rate;
+            transform.position = Vector3.Lerp(transform.position, Destination.position, _i);
+            transform.rotation = Quaternion.Slerp(transform.rotation, Destination.rotation, _i);
+            if (transform.position != Destination.position) return;
+            transform.SetParent(Destination);
         }
     }
 }

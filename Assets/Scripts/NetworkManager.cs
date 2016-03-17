@@ -1,7 +1,9 @@
 using System.Linq;
 using Assets.Scripts.Core;
 using Assets.Scripts.DeckEdit;
+using Assets.Scripts.Gui;
 using Assets.Scripts.Gui.Menu;
+using Assets.Scripts.Metadata;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -10,6 +12,7 @@ namespace Assets.Scripts
 {
     public class NetworkManager : MonoBehaviour
     {
+        private AudioControl _audioControl;
         private bool _showWarning = true;
         public Button CancelButton;
         public Button CreateButton;
@@ -17,11 +20,13 @@ namespace Assets.Scripts
         public GameObject RoomListItem;
         public Text RoomNameInputField;
         public GameObject ScrollViewContent;
+        public LaunchToMain Launch;
 
         private void Start()
         {
             PhotonNetwork.ConnectUsingSettings("0.5");
             DeckHandler.LoadFromSaveToDeck();
+            _audioControl = GameObject.FindGameObjectWithTag(Tag.Audio).GetComponent<AudioControl>();
         }
 
         private void Awake()
@@ -39,23 +44,28 @@ namespace Assets.Scripts
 
         private void OnReceivedRoomListUpdate()
         {
-            if (ScrollViewContent != null)
+            if (ScrollViewContent == null) return;
+            foreach (Transform child in ScrollViewContent.transform)
             {
-                foreach (Transform child in ScrollViewContent.transform)
+                Destroy(child.gameObject);
+            }
+            foreach (var room in PhotonNetwork.GetRoomList())
+            {
+                var roomListItem = Instantiate(RoomListItem);
+                var texts = roomListItem.GetComponentsInChildren<Text>();
+                texts[0].text = room.name;
+                texts[1].text = room.playerCount + " / 2" +
+                                (room.playerCount == 2 ? " <b><color=#AA3330FF>FULL</color></b>" : "");
+                roomListItem.transform.SetParent(ScrollViewContent.transform, false);
+                var button = roomListItem.GetComponentsInChildren<Button>()[1];
+                if (room.playerCount < 2)
                 {
-                    Destroy(child.gameObject);
-                }
-                foreach (var room in PhotonNetwork.GetRoomList())
-                {
-                    var roomListItem = Instantiate(RoomListItem);
-                    var texts = roomListItem.GetComponentsInChildren<Text>();
-                    texts[0].text = room.name;
-                    texts[1].text = room.playerCount + " / 2" +
-                                    (room.playerCount == 2 ? " <b><color=#AA3330FF>FULL</color></b>" : "");
-                    roomListItem.transform.SetParent(ScrollViewContent.transform, false);
-                    var button = roomListItem.GetComponentsInChildren<Button>()[1];
-                    button.interactable = room.playerCount < 2;
+                    button.interactable = true;
                     button.onClick.AddListener(() => { PhotonNetwork.JoinRoom(room.name); });
+                }
+                else
+                {
+                    Destroy(button.gameObject);
                 }
             }
         }
@@ -70,13 +80,18 @@ namespace Assets.Scripts
         public void CreateRoom()
         {
             var roomName = RoomNameInputField.text;
-            if (string.IsNullOrEmpty(roomName) || IsRoomExists(roomName) || roomName.Length > 20) return;
+            if (string.IsNullOrEmpty(roomName) || IsRoomExists(roomName) || roomName.Length > 20)
+            {
+                _audioControl.GetAudioSource(SoundType.AccessDenied).Play();
+                return;
+            }
 
             if (PhotonNetwork.CreateRoom(RoomNameInputField.text, new RoomOptions {maxPlayers = 2, isVisible = true},
                 null))
             {
                 CreateButton.interactable = false;
                 CancelButton.interactable = true;
+                _audioControl.GetAudioSource(SoundType.PrepareHyperDrive).Play();
                 CreateButton.GetComponent<ChangeMenu>().Change();
             }
             else
@@ -84,7 +99,7 @@ namespace Assets.Scripts
                 CreateButton.interactable = true;
             }
         }
-        
+
         private void OnLeftRoom()
         {
             if (CancelButton != null)
@@ -102,12 +117,12 @@ namespace Assets.Scripts
         private void OnJoinedRoom()
         {
             if (!PhotonNetwork.isMasterClient)
-                SceneManager.LoadScene("Main");
+                Launch.Launch();
         }
 
         private void OnPhotonPlayerConnected()
         {
-            SceneManager.LoadScene("Main");
+            Launch.Launch();
         }
 
         private void OnPhotonPlayerDisconnected()

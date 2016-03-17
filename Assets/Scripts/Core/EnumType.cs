@@ -51,4 +51,22 @@ namespace Assets.Scripts.Core
         AllyUnit,
         EnemyUnit
     }
+
+    public enum SoundType
+    {
+        ButtonClick,
+        BackgroundMusic,
+        AccessMainFrame,
+        LoginAuthorized,
+        AccessArchives,
+        ProgramActivated,
+        ProgramTerminated,
+        LaunchingActivated,
+        LaunchingTerminated,
+        AccessFiles,
+        Synchronizing,
+        PrepareHyperDrive,
+        AccessDenied,
+        ActiveHyperDrive
+    }
 }
