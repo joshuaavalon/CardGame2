@@ -22,6 +22,7 @@ namespace Assets.Scripts
         public AudioClip PrepareHyperDrive;
         public AudioClip AccessDenied;
         public AudioClip ActiveHyperDrive;
+        public AudioClip WrapDrive;
 
 
         private void Awake()
@@ -73,6 +74,9 @@ namespace Assets.Scripts
                     break;
                 case SoundType.ActiveHyperDrive:
                     SoundEffect.clip = ActiveHyperDrive;
+                    break;
+                case SoundType.WrapDrive:
+                    SoundEffect.clip = WrapDrive;
                     break;
                 case SoundType.BackgroundMusic:
                     return BackgroundMusic;

@@ -1,8 +1,8 @@
-using System.Collections;
 using Assets.Scripts.Core;
 using Assets.Scripts.Metadata;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace Assets.Scripts.Gui
 {
@@ -11,7 +11,7 @@ namespace Assets.Scripts.Gui
         public MoveCamera Camera;
         public GameObject CameraPoint;
         public GameObject Engine;
-        public MoveOnPath MoveObject;
+        public iTweenMoveOnPath MoveObject;
 
         private void Start()
         {
@@ -21,8 +21,7 @@ namespace Assets.Scripts.Gui
         public void Launch()
         {
             Camera.Destination = CameraPoint.transform;
-            Camera.TimeSpan = 0.3f;
-            StartCoroutine(Wait());
+            Camera.TimeSpan = 1f;
             GameObject.FindGameObjectWithTag(Tag.Audio)
                 .GetComponent<AudioControl>().GetAudioSource(SoundType.ActiveHyperDrive).Play();
             MoveObject.enabled = true;
@@ -32,11 +31,6 @@ namespace Assets.Scripts.Gui
         private void Reach()
         {
             SceneManager.LoadScene("Main");
-        }
-
-        private IEnumerator Wait()
-        {
-            yield return new WaitForSeconds(2);
         }
     }
 }

@@ -67,6 +67,7 @@ namespace Assets.Scripts.Core
         Synchronizing,
         PrepareHyperDrive,
         AccessDenied,
-        ActiveHyperDrive
+        ActiveHyperDrive,
+        WrapDrive
     }
 }
