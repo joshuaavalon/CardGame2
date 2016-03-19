@@ -15,9 +15,7 @@ namespace Assets.Scripts.Gui.Controller
         /// <param name="card">Card to move.</param>
         public void MoveToHand(GameObject card)
         {
-            // TODO: Move card to hand
             card.MoveToParent(Hand);
-            // Use MoveToParent
         }
 
         /// <summary>
@@ -26,9 +24,7 @@ namespace Assets.Scripts.Gui.Controller
         /// <param name="card">Card to move.</param>
         public void MoveToBattlefield(GameObject card)
         {
-            // TODO: Move card to Battlefield
             card.MoveToParent(Battlefield);
-            // Use MoveToParent
         }
     }
 }

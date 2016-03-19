@@ -67,18 +67,14 @@ namespace Assets.Scripts.Gui
         public void UpdatePlayerStats(PlayerType type, PlayerStats stats)
         {
             var target = type == PlayerType.Player ? Player : Opponent;
-            target.Stats.SetText(PlayerStatsType.Hp,
-                ColorString(PlayerStatsType.Hp.ToString(), stats.Get(PlayerStatsType.Hp),
-                    stats.Get(PlayerStatsType.MaxHp)));
-            target.Stats.SetText(PlayerStatsType.Metal,
-                ColorString(PlayerStatsType.Metal.ToString(), stats.Get(PlayerStatsType.Metal),
-                    stats.Get(PlayerStatsType.MaxMetal)));
-            target.Stats.SetText(PlayerStatsType.Crystal,
-                ColorString(PlayerStatsType.Crystal.ToString(), stats.Get(PlayerStatsType.Crystal),
-                    stats.Get(PlayerStatsType.MaxCrystal)));
-            target.Stats.SetText(PlayerStatsType.Deuterium,
-                ColorString(PlayerStatsType.Deuterium.ToString(), stats.Get(PlayerStatsType.Deuterium),
-                    stats.Get(PlayerStatsType.MaxDeuterium)));
+            target.Stats.SetText(PlayerStatsType.Hp,stats.Get(PlayerStatsType.Hp),
+                    stats.Get(PlayerStatsType.MaxHp));
+            target.Stats.SetText(PlayerStatsType.Metal, stats.Get(PlayerStatsType.Metal),
+                    stats.Get(PlayerStatsType.MaxMetal));
+            target.Stats.SetText(PlayerStatsType.Crystal, stats.Get(PlayerStatsType.Crystal),
+                    stats.Get(PlayerStatsType.MaxCrystal));
+            target.Stats.SetText(PlayerStatsType.Deuterium, stats.Get(PlayerStatsType.Deuterium),
+                    stats.Get(PlayerStatsType.MaxDeuterium));
         }
 
         private string ColorString(string type, int current, int max)
