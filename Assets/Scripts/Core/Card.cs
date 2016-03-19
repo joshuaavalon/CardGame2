@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Assets.Scripts.Core.Effect;
 using Assets.Scripts.Core.Message;
@@ -16,11 +17,12 @@ namespace Assets.Scripts.Core
         public readonly string Id;
         public readonly string Name;
         public readonly IEnumerable<UnitType> Tags;
+        public readonly TargetType Target;
         public readonly CardType Type;
         private Player _parent;
         private ZoneType _zone;
         public bool FirstTurnPlay;
-        public readonly TargetType Target;
+        public bool HasAttack;
 
         public Card(string id, string name, Gui.Card card, Player parent, ZoneType zone)
         {
@@ -77,8 +79,10 @@ namespace Assets.Scripts.Core
 
         public void Handle(TurnStartMessage message)
         {
-            if (!FirstTurnPlay || _zone != ZoneType.BattleField) return;
+            if (_zone != ZoneType.BattleField || message.Parent != Parent.Type) return;
+            UnityEngine.Debug.Log(Id + HasAttack+"t");
             FirstTurnPlay = false;
+            HasAttack = false;
         }
 
         public void OnEnter(Card target = null)
@@ -101,11 +105,14 @@ namespace Assets.Scripts.Core
 
         public bool CanDefence()
         {
-            return Effects.Aggregate(true, (current, effect) => current && effect.CanDefence());
+            UnityEngine.Debug.Log(Id+ HasAttack);
+            return Effects.Aggregate(!HasAttack, (current, effect) => current && effect.CanDefence());
         }
 
         public void OnAttack()
         {
+            HasAttack = true;
+            UnityEngine.Debug.Log(Id + HasAttack);
             foreach (var effect in Effects)
             {
                 effect.OnAttack();

@@ -305,7 +305,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1199283377}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: -220, y: 0}
@@ -1521,7 +1521,7 @@ RectTransform:
   - {fileID: 727651059}
   - {fileID: 1416803531}
   m_Father: {fileID: 1199283377}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 90, y: -90}
@@ -1575,7 +1575,7 @@ RectTransform:
   - {fileID: 2009062713}
   - {fileID: 1749524568}
   m_Father: {fileID: 1199283377}
-  m_RootOrder: 6
+  m_RootOrder: 7
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -1742,7 +1742,7 @@ RectTransform:
   - {fileID: 287512027}
   - {fileID: 140332631}
   m_Father: {fileID: 1199283377}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -2976,6 +2976,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
+  - {fileID: 1762503551}
   - {fileID: 203737315}
   - {fileID: 730225729}
   - {fileID: 1715432379}
@@ -2983,7 +2984,6 @@ RectTransform:
   - {fileID: 706111207}
   - {fileID: 1963963919}
   - {fileID: 723917534}
-  - {fileID: 1762503551}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_AnchorMin: {x: 0, y: 0}
@@ -3745,7 +3745,7 @@ RectTransform:
   - {fileID: 578945040}
   - {fileID: 946698924}
   m_Father: {fileID: 1199283377}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -3807,7 +3807,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22449152, guid: f6535dbeeecafc6498dba8aaea0046b3, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22449152, guid: f6535dbeeecafc6498dba8aaea0046b3, type: 2}
       propertyPath: m_AnchoredPosition.x
@@ -3852,6 +3852,10 @@ Prefab:
     - target: {fileID: 11491548, guid: f6535dbeeecafc6498dba8aaea0046b3, type: 2}
       propertyPath: m_Text
       value: Next
+      objectReference: {fileID: 0}
+    - target: {fileID: 112820, guid: f6535dbeeecafc6498dba8aaea0046b3, type: 2}
+      propertyPath: m_Name
+      value: Next Phase Button
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f6535dbeeecafc6498dba8aaea0046b3, type: 2}
@@ -4268,7 +4272,7 @@ RectTransform:
   - {fileID: 861856016}
   - {fileID: 426300690}
   m_Father: {fileID: 1199283377}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 90, y: 90}
@@ -4386,7 +4390,7 @@ RectTransform:
   - {fileID: 1275663887}
   - {fileID: 1968451610}
   m_Father: {fileID: 1199283377}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: -0.000061035156, y: 0.000030517578}

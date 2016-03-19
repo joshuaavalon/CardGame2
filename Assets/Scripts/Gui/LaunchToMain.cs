@@ -2,7 +2,6 @@ using Assets.Scripts.Core;
 using Assets.Scripts.Metadata;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 namespace Assets.Scripts.Gui
 {

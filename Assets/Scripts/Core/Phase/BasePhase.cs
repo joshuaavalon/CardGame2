@@ -59,7 +59,8 @@ namespace Assets.Scripts.Core.Phase
         public void Start()
         {
             var main = this as MainPhase;
-            if(main != null)
+            var main2 = this as SecondMainPhase;
+            if (main != null && main2 == null)
                 Game.Publish(new TurnStartMessage(Parent));
             Game.Publish(new PhaseStartMessage(this));
             Execute();
