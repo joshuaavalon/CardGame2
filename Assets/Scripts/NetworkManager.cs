@@ -16,11 +16,11 @@ namespace Assets.Scripts
         private bool _showWarning = true;
         public Button CancelButton;
         public Button CreateButton;
+        public LaunchToMain Launch;
         public Button NewButton;
         public GameObject RoomListItem;
         public Text RoomNameInputField;
         public GameObject ScrollViewContent;
-        public LaunchToMain Launch;
 
         private void Start()
         {
@@ -102,7 +102,7 @@ namespace Assets.Scripts
 
         private void OnLeftRoom()
         {
-            if (CancelButton != null)
+            if (CancelButton != null && Launch.Engine.activeInHierarchy == false)
             {
                 CancelButton.interactable = false;
                 CancelButton.GetComponent<ChangeMenu>().Change();

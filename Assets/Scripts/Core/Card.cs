@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using Assets.Scripts.Core.Effect;
 using Assets.Scripts.Core.Message;
@@ -80,7 +79,6 @@ namespace Assets.Scripts.Core
         public void Handle(TurnStartMessage message)
         {
             if (_zone != ZoneType.BattleField || message.Parent != Parent.Type) return;
-            UnityEngine.Debug.Log(Id + HasAttack+"t");
             FirstTurnPlay = false;
             HasAttack = false;
         }
@@ -105,14 +103,12 @@ namespace Assets.Scripts.Core
 
         public bool CanDefence()
         {
-            UnityEngine.Debug.Log(Id+ HasAttack);
             return Effects.Aggregate(!HasAttack, (current, effect) => current && effect.CanDefence());
         }
 
         public void OnAttack()
         {
             HasAttack = true;
-            UnityEngine.Debug.Log(Id + HasAttack);
             foreach (var effect in Effects)
             {
                 effect.OnAttack();

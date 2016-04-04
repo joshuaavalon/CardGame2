@@ -148,6 +148,20 @@ namespace Assets.Scripts.Gui
         public class Statistics
         {
             public int Hp, Atk, Metal, Crystal, Deuterium;
+
+            public Statistics(Statistics stats)
+            {
+                Hp = stats.Hp;
+                Atk = stats.Atk;
+                Metal = stats.Metal;
+                Crystal = stats.Crystal;
+                Deuterium = stats.Deuterium;
+            }
+
+            public Statistics()
+            {
+                
+            }
         }
 
         private void OnDestroy()

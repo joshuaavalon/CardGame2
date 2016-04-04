@@ -103,6 +103,7 @@ namespace Assets.Scripts.Core
                     _battlefield.Add(card);
                     card.Zone = ZoneType.BattleField;
                     card.OnEnter(target);
+                    Game.Publish(new CardPlayMessage(card));
                     return true;
                 default:
                     return false;

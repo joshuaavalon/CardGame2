@@ -349,5 +349,10 @@ namespace Assets.Scripts.Gui
             var component = gameMessage.GetComponent<Message>();
             component.Show(message, time);
         }
+
+        public GameObject GetCardById(string id)
+        {
+            return _idDictionary[id];
+        }
     }
 }
