@@ -41,7 +41,9 @@ namespace Assets.Scripts.Core
     public enum UnitType
     {
         None,
-        Fighter
+        Fighter,
+        Battleship,
+        Scoutship
     }
 
     public enum TargetType
