@@ -1,7 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using Assets.Scripts.Core.Statistics;
-using Assets.Scripts.Utility;
+﻿using Assets.Scripts.Core.Statistics;
 
 namespace Assets.Scripts.Core.Effect
 {
