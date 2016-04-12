@@ -1,5 +1,8 @@
 using System;
 using System.Linq;
+using Assets.Scripts.Audio;
+using Assets.Scripts.Configuration;
+using Assets.Scripts.Core;
 using Assets.Scripts.Gui.Menu;
 using Assets.Scripts.Metadata;
 using UnityEngine;
@@ -10,6 +13,7 @@ namespace Assets.Scripts.Gui
     public class Setting : MonoBehaviour
     {
         private AudioControl _audioControl;
+        private GameConfiguration _config;
         private Resolution[] _resolutions;
         private bool _valueChanged;
         public Slider BgmSlider;
@@ -20,11 +24,11 @@ namespace Assets.Scripts.Gui
 
         private void Awake()
         {
+            _config = GameConfiguration.Get();
             _resolutions = Screen.resolutions;
             _audioControl = GameObject.FindGameObjectWithTag(Tag.Audio).GetComponent<AudioControl>();
             Resolution.AddOptions(_resolutions.Select(res => res.ToString().Split('@')[0]).ToList());
             GraphicQuality.AddOptions(QualitySettings.names.ToList());
-            Initial();
             Load();
             BgmSlider.onValueChanged.AddListener(value =>
             {
@@ -33,7 +37,7 @@ namespace Assets.Scripts.Gui
             });
             SoundEffectSlider.onValueChanged.AddListener(value =>
             {
-                _audioControl.SoundEffect.volume = value;
+                _audioControl.PlayAudioClip(AudioClipType.Greetings, value);
                 _valueChanged = true;
             });
             Resolution.onValueChanged.AddListener(
@@ -55,48 +59,31 @@ namespace Assets.Scripts.Gui
             ChangeApplyWindow.NoButton.onClick.AddListener(() => { ChangeApplyWindow.gameObject.SetActive(false); });
         }
 
-        private void Initial()
+        private void OnEnable()
         {
-            if (!PlayerPrefs.HasKey(PlayerPrefKey.BgmVolume))
-                PlayerPrefs.SetFloat(PlayerPrefKey.BgmVolume, _audioControl.BackgroundMusic.volume);
-            if (!PlayerPrefs.HasKey(PlayerPrefKey.SoundEffectVolume))
-                PlayerPrefs.SetFloat(PlayerPrefKey.SoundEffectVolume, _audioControl.SoundEffect.volume);
-            if (!PlayerPrefs.HasKey(PlayerPrefKey.ScreenWidth) || !PlayerPrefs.HasKey(PlayerPrefKey.ScreenHeight))
-            {
-                PlayerPrefs.SetInt(PlayerPrefKey.ScreenWidth, Screen.width);
-                PlayerPrefs.SetInt(PlayerPrefKey.ScreenHeight, Screen.height);
-            }
-            var res = new Resolution
-            {
-                height = PlayerPrefs.GetInt(PlayerPrefKey.ScreenHeight),
-                width = PlayerPrefs.GetInt(PlayerPrefKey.ScreenWidth),
-                refreshRate = Screen.currentResolution.refreshRate
-            };
-            Resolution.value = Array.IndexOf(_resolutions, res);
-            if (!PlayerPrefs.HasKey(PlayerPrefKey.GraphicQuality))
-                PlayerPrefs.SetInt(PlayerPrefKey.GraphicQuality, QualitySettings.GetQualityLevel());
-            GraphicQuality.value = QualitySettings.GetQualityLevel();
+            Load();
         }
 
         public void Save()
         {
-            PlayerPrefs.SetFloat(PlayerPrefKey.BgmVolume, _audioControl.BackgroundMusic.volume);
-            PlayerPrefs.SetFloat(PlayerPrefKey.SoundEffectVolume, _audioControl.SoundEffect.volume);
-            PlayerPrefs.SetInt(PlayerPrefKey.ScreenWidth, Screen.width);
-            PlayerPrefs.SetInt(PlayerPrefKey.ScreenHeight, Screen.height);
-            PlayerPrefs.SetInt(PlayerPrefKey.GraphicQuality, QualitySettings.GetQualityLevel());
+            _config.BackgroundMusicVolume = BgmSlider.value;
+            _config.SoundEffectVolume = SoundEffectSlider.value;
+            _config.GraphicQualityLevel = GraphicQuality.value;
+            _config.Resolution = new Resolution
+            {
+                height = Screen.height,
+                width = Screen.width,
+                refreshRate = Screen.currentResolution.refreshRate
+            };
             _valueChanged = false;
         }
 
         public void Load()
         {
-            _audioControl.BackgroundMusic.volume = PlayerPrefs.GetFloat(PlayerPrefKey.BgmVolume);
-            BgmSlider.value = _audioControl.BackgroundMusic.volume;
-            _audioControl.SoundEffect.volume = PlayerPrefs.GetFloat(PlayerPrefKey.SoundEffectVolume);
-            SoundEffectSlider.value = _audioControl.SoundEffect.volume;
-            Screen.SetResolution(PlayerPrefs.GetInt(PlayerPrefKey.ScreenWidth),
-                PlayerPrefs.GetInt(PlayerPrefKey.ScreenHeight), Screen.fullScreen);
-            QualitySettings.SetQualityLevel(PlayerPrefs.GetInt(PlayerPrefKey.GraphicQuality), true);
+            Resolution.value = Array.IndexOf(_resolutions, _config.Resolution);
+            GraphicQuality.value = _config.GraphicQualityLevel;
+            BgmSlider.value = _config.BackgroundMusicVolume;
+            SoundEffectSlider.value = _config.SoundEffectVolume;
         }
 
         public void CheckApplyValue()
@@ -109,8 +96,8 @@ namespace Assets.Scripts.Gui
 
         private void Leave()
         {
-            Load();
             GetComponent<ChangeMenu>().Change();
+            _audioControl.ResetVolume();
         }
     }
 }

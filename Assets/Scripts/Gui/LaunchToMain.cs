@@ -1,4 +1,5 @@
 using System.Collections;
+using Assets.Scripts.Audio;
 using Assets.Scripts.Core;
 using Assets.Scripts.Metadata;
 using UnityEngine;
@@ -18,7 +19,7 @@ namespace Assets.Scripts.Gui
             Camera.Destination = CameraPoint.transform;
             Camera.TimeSpan = 1f;
             GameObject.FindGameObjectWithTag(Tag.Audio)
-                .GetComponent<AudioControl>().GetAudioSource(SoundType.ActiveHyperDrive).Play();
+                .GetComponent<AudioControl>().PlayAudioClip(AudioClipType.ActiveHyperDrive);
             WrapEffect.SetActive(true);
             Engine.SetActive(true);
             StartCoroutine(Wait(3.5F));

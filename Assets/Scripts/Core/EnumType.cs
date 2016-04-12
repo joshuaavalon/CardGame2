@@ -54,23 +54,22 @@ namespace Assets.Scripts.Core
         EnemyUnit
     }
 
-    public enum SoundType
+    public enum AudioClipType
     {
-        ButtonClick,
-        BackgroundMusic,
-        AccessMainFrame,
-        LoginAuthorized,
-        AccessArchives,
-        ProgramActivated,
-        ProgramTerminated,
-        LaunchingActivated,
-        LaunchingTerminated,
-        AccessFiles,
-        Synchronizing,
-        PrepareHyperDrive,
-        AccessDenied,
-        ActiveHyperDrive,
-        WrapDrive,
-        InWrap
+        ButtonClick = 0,
+        Greetings = 1,
+        AccessMainFrame = 2,
+        LoginAuthorized = 3,
+        AccessArchives = 4,
+        ProgramActivated = 5,
+        ProgramTerminated = 6,
+        LaunchingActivated = 7,
+        LaunchingTerminated = 8,
+        AccessFiles = 9,
+        Synchronizing = 10,
+        PrepareHyperDrive = 11,
+        AccessDenied = 12,
+        ActiveHyperDrive = 13,
+        WrapDrive = 14
     }
 }

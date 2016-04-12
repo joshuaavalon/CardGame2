@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Assets.Scripts.Audio;
 using Assets.Scripts.Core;
 using Assets.Scripts.DeckEdit;
 using Assets.Scripts.Gui;
@@ -29,7 +30,6 @@ namespace Assets.Scripts
             PhotonNetwork.ConnectUsingSettings("0.5");
             DeckHandler.LoadFromSaveToDeck();
             _audioControl = GameObject.FindGameObjectWithTag(Tag.Audio).GetComponent<AudioControl>();
-            _audioControl.GetAudioSource(SoundType.InWrap).Play();
             ButtonCheck();
         }
 
@@ -83,7 +83,7 @@ namespace Assets.Scripts
             var roomName = RoomNameInputField.text;
             if (string.IsNullOrEmpty(roomName) || IsRoomExists(roomName) || roomName.Length > 20)
             {
-                _audioControl.GetAudioSource(SoundType.AccessDenied).Play();
+                _audioControl.PlayAudioClip(AudioClipType.AccessDenied);
                 return;
             }
 
@@ -92,7 +92,7 @@ namespace Assets.Scripts
             {
                 CreateButton.interactable = false;
                 CancelButton.interactable = true;
-                _audioControl.GetAudioSource(SoundType.PrepareHyperDrive).Play();
+                _audioControl.PlayAudioClip(AudioClipType.PrepareHyperDrive);
                 GameObject.FindGameObjectWithTag(Tag.MessageHandler).GetComponent<MessageHandler>().ShowMessage("Failed to create room");
                 CreateButton.GetComponent<ChangeMenu>().Change();
             }

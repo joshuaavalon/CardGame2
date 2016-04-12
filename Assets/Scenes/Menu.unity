@@ -489,7 +489,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 20345922}
   - 114: {fileID: 20345921}
-  - 82: {fileID: 20345920}
   - 82: {fileID: 20345919}
   m_Layer: 0
   m_Name: Audio
@@ -572,80 +571,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!82 &20345920
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 20345918}
-  m_Enabled: 1
-  serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b099d639d0ed86640be28be6821e240a, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Spatialize: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 1
-  BypassListenerEffects: 1
-  BypassReverbZones: 1
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
-  reverbZoneMixCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 0
 --- !u!114 &20345921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -658,22 +583,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BackgroundMusic: {fileID: 20345919}
-  SoundEffect: {fileID: 20345920}
-  ButtonClick: {fileID: 8300000, guid: 52e72717a1f10464388164063ad465a4, type: 3}
-  AccessMainFrame: {fileID: 8300000, guid: ecc7d43b9e64bf34981351013e296de3, type: 3}
-  LoginAuthorized: {fileID: 8300000, guid: 53220d76097671940a169cddbc1f5db0, type: 3}
-  AccessArchives: {fileID: 8300000, guid: 992be23701e1bb348ab6d249e28aec26, type: 3}
-  ProgramActivated: {fileID: 8300000, guid: b29b8b00e8157374eb1da3d2334ade7a, type: 3}
-  ProgramTerminated: {fileID: 8300000, guid: b90de1517290d274e92d9169f2f3d281, type: 3}
-  LaunchingActivated: {fileID: 8300000, guid: 9487e5604a3aa214e886c5b6e2283fed, type: 3}
-  LaunchingTerminated: {fileID: 8300000, guid: be4ef75ca39118149bb1eb2c39b553f2, type: 3}
-  AccessFiles: {fileID: 8300000, guid: decdf3a4e9a1fb0418cd07a3fd34ef6f, type: 3}
-  Synchronizing: {fileID: 8300000, guid: 8a307d59370bab84d90f7e2c04487680, type: 3}
-  PrepareHyperDrive: {fileID: 8300000, guid: 49a729e75e132284986c626e58baa4a0, type: 3}
-  AccessDenied: {fileID: 8300000, guid: ae2e948a1fed3664ab661b4a4fb0f067, type: 3}
-  ActiveHyperDrive: {fileID: 8300000, guid: f24d4237efbd97a47865085fd82d04f6, type: 3}
-  WrapDrive: {fileID: 8300000, guid: 95b3107d44282d240bb63363ae79f8fc, type: 3}
-  InWrap: {fileID: 0}
+  LabelAudioClips:
+  - Label: 4
+    AudioClip: {fileID: 8300000, guid: 992be23701e1bb348ab6d249e28aec26, type: 3}
+  - Label: 12
+    AudioClip: {fileID: 8300000, guid: ae2e948a1fed3664ab661b4a4fb0f067, type: 3}
+  - Label: 9
+    AudioClip: {fileID: 8300000, guid: decdf3a4e9a1fb0418cd07a3fd34ef6f, type: 3}
+  - Label: 2
+    AudioClip: {fileID: 8300000, guid: ecc7d43b9e64bf34981351013e296de3, type: 3}
+  - Label: 13
+    AudioClip: {fileID: 8300000, guid: f24d4237efbd97a47865085fd82d04f6, type: 3}
+  - Label: 0
+    AudioClip: {fileID: 8300000, guid: 52e72717a1f10464388164063ad465a4, type: 3}
+  - Label: 7
+    AudioClip: {fileID: 8300000, guid: 9487e5604a3aa214e886c5b6e2283fed, type: 3}
+  - Label: 8
+    AudioClip: {fileID: 8300000, guid: be4ef75ca39118149bb1eb2c39b553f2, type: 3}
+  - Label: 3
+    AudioClip: {fileID: 8300000, guid: 53220d76097671940a169cddbc1f5db0, type: 3}
+  - Label: 11
+    AudioClip: {fileID: 8300000, guid: 49a729e75e132284986c626e58baa4a0, type: 3}
+  - Label: 5
+    AudioClip: {fileID: 8300000, guid: b29b8b00e8157374eb1da3d2334ade7a, type: 3}
+  - Label: 6
+    AudioClip: {fileID: 8300000, guid: b90de1517290d274e92d9169f2f3d281, type: 3}
+  - Label: 10
+    AudioClip: {fileID: 8300000, guid: 8a307d59370bab84d90f7e2c04487680, type: 3}
+  - Label: 14
+    AudioClip: {fileID: 8300000, guid: 95b3107d44282d240bb63363ae79f8fc, type: 3}
+  - Label: 1
+    AudioClip: {fileID: 8300000, guid: b099d639d0ed86640be28be6821e240a, type: 3}
 --- !u!4 &20345922
 Transform:
   m_ObjectHideFlags: 0
@@ -1784,8 +1724,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1234818828}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 28, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -36138,7 +36078,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 1, y: -7}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 67, y: 29}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1284376310
 MonoBehaviour:
@@ -36520,7 +36460,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 1, y: -10}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 68, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1295652000
 MonoBehaviour:
@@ -38205,7 +38145,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1419131345
 RectTransform:
   m_ObjectHideFlags: 0
@@ -41207,8 +41147,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1402627447}
   m_RootOrder: 0
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 28, y: 2}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -45616,7 +45556,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 4, y: -7}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 68, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1752134635
 MonoBehaviour:
@@ -48984,7 +48924,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -6}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 68, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1845347590
 MonoBehaviour:
@@ -49591,7 +49531,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: -5}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 68, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1899959789
 MonoBehaviour:
@@ -50624,8 +50564,8 @@ MonoBehaviour:
   NewButton: {fileID: 644788747}
   RoomListItem: {fileID: 143090, guid: 6a25a8c819687574793debb87d96051f, type: 2}
   RoomNameInputField: {fileID: 130832011}
-  ScrollViewContent: {fileID: 1910613165}
   SceneFade: {fileID: 199989826}
+  ScrollViewContent: {fileID: 1910613165}
 --- !u!4 &1989405788
 Transform:
   m_ObjectHideFlags: 0
