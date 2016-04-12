@@ -8,6 +8,7 @@ namespace Assets.Scripts.Gui
         public float Velocity;
         public GameObject WrapJump;
         public GameObject Canvas;
+        public CanvasGroupFade Fade;
 
         private void Start()
         {
@@ -20,14 +21,13 @@ namespace Assets.Scripts.Gui
         {
             yield return new WaitForSeconds(time);
             WrapJump.SetActive(false);
-            Canvas.SetActive(true);
         }
 
         IEnumerator WaitCanves(float time)
         {
             yield return new WaitForSeconds(time);
-            WrapJump.SetActive(false);
             Canvas.SetActive(true);
+            Fade.StartFadeIn();
         }
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using Assets.Scripts.Core;
 using Assets.Scripts.DeckEdit;
@@ -15,12 +16,13 @@ namespace Assets.Scripts
         private bool _showWarning = true;
         public Button CancelButton;
         public Button CreateButton;
+        public Action FadeOut = () => { };
         public LaunchToMain Launch;
         public Button NewButton;
         public GameObject RoomListItem;
         public Text RoomNameInputField;
-        public GameObject ScrollViewContent;
         public SceneFadeInOut SceneFade;
+        public GameObject ScrollViewContent;
 
         private void Start()
         {
@@ -28,6 +30,7 @@ namespace Assets.Scripts
             DeckHandler.LoadFromSaveToDeck();
             _audioControl = GameObject.FindGameObjectWithTag(Tag.Audio).GetComponent<AudioControl>();
             _audioControl.GetAudioSource(SoundType.InWrap).Play();
+            ButtonCheck();
         }
 
         private void Awake()
@@ -37,10 +40,7 @@ namespace Assets.Scripts
 
         private void OnJoinedLobby()
         {
-            if (NewButton != null)
-                NewButton.interactable = Deck.Get().EnoughCard();
-            if (CreateButton != null)
-                CreateButton.interactable = true;
+            ButtonCheck();
         }
 
         private void OnReceivedRoomListUpdate()
@@ -93,6 +93,7 @@ namespace Assets.Scripts
                 CreateButton.interactable = false;
                 CancelButton.interactable = true;
                 _audioControl.GetAudioSource(SoundType.PrepareHyperDrive).Play();
+                GameObject.FindGameObjectWithTag(Tag.MessageHandler).GetComponent<MessageHandler>().ShowMessage("Failed to create room");
                 CreateButton.GetComponent<ChangeMenu>().Change();
             }
             else
@@ -110,6 +111,7 @@ namespace Assets.Scripts
             }
             else
             {
+                FadeOut();
                 SceneFade.EndScene("Menu");
                 DestroyImmediate(gameObject);
             }
@@ -145,6 +147,17 @@ namespace Assets.Scripts
         private void OnLevelWasLoaded(int level)
         {
             _showWarning = level == 0;
+            if (level != 0) return;
+            ButtonCheck();
+        }
+
+        private void ButtonCheck()
+        {
+            var interactable = Deck.Get().EnoughCard() && PhotonNetwork.insideLobby;
+            if (NewButton != null)
+                NewButton.interactable = interactable;
+            if (CreateButton != null)
+                CreateButton.interactable = interactable;
         }
     }
 }
