@@ -44,7 +44,7 @@ namespace Assets.Scripts.Gui
                 });
             GraphicQuality.onValueChanged.AddListener(level =>
             {
-                //QualitySettings.SetQualityLevel(level, true);
+                QualitySettings.SetQualityLevel(level, true);
                 _valueChanged = true;
             });
             ChangeApplyWindow.YesButton.onClick.AddListener(() =>
@@ -96,7 +96,7 @@ namespace Assets.Scripts.Gui
             SoundEffectSlider.value = _audioControl.SoundEffect.volume;
             Screen.SetResolution(PlayerPrefs.GetInt(PlayerPrefKey.ScreenWidth),
                 PlayerPrefs.GetInt(PlayerPrefKey.ScreenHeight), Screen.fullScreen);
-            //QualitySettings.SetQualityLevel(PlayerPrefs.GetInt(PlayerPrefKey.GraphicQuality), true);
+            QualitySettings.SetQualityLevel(PlayerPrefs.GetInt(PlayerPrefKey.GraphicQuality), true);
         }
 
         public void CheckApplyValue()

@@ -25,8 +25,8 @@ namespace Assets.Scripts.Gui
                 _i = 0;
                 _previous = Destination.position;
             }
-            var rate = 1/TimeSpan;
-            _i += Time.deltaTime*rate;
+            var rate = 1 / TimeSpan;
+            _i += Time.deltaTime * TimeSpan;
             transform.position = Vector3.Lerp(transform.position, Destination.position, _i);
             transform.rotation = Quaternion.Slerp(transform.rotation, Destination.rotation, _i);
             if (transform.position != Destination.position) return;

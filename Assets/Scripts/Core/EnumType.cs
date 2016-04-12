@@ -70,6 +70,7 @@ namespace Assets.Scripts.Core
         PrepareHyperDrive,
         AccessDenied,
         ActiveHyperDrive,
-        WrapDrive
+        WrapDrive,
+        InWrap
     }
 }

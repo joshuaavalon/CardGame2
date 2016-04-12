@@ -5,7 +5,6 @@ using Assets.Scripts.Gui;
 using Assets.Scripts.Gui.Menu;
 using Assets.Scripts.Metadata;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Assets.Scripts
@@ -21,12 +20,14 @@ namespace Assets.Scripts
         public GameObject RoomListItem;
         public Text RoomNameInputField;
         public GameObject ScrollViewContent;
+        public SceneFadeInOut SceneFade;
 
         private void Start()
         {
             PhotonNetwork.ConnectUsingSettings("0.5");
             DeckHandler.LoadFromSaveToDeck();
             _audioControl = GameObject.FindGameObjectWithTag(Tag.Audio).GetComponent<AudioControl>();
+            _audioControl.GetAudioSource(SoundType.InWrap).Play();
         }
 
         private void Awake()
@@ -109,7 +110,7 @@ namespace Assets.Scripts
             }
             else
             {
-                SceneManager.LoadScene("Menu");
+                SceneFade.EndScene("Menu");
                 DestroyImmediate(gameObject);
             }
         }

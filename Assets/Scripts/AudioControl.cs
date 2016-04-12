@@ -23,6 +23,7 @@ namespace Assets.Scripts
         public AudioClip AccessDenied;
         public AudioClip ActiveHyperDrive;
         public AudioClip WrapDrive;
+        public AudioClip InWrap;
 
 
         private void Awake()
@@ -34,6 +35,7 @@ namespace Assets.Scripts
 
         public AudioSource GetAudioSource(SoundType type)
         {
+            SoundEffect.loop = false;
             switch (type)
             {
                 case SoundType.ButtonClick:
@@ -77,6 +79,10 @@ namespace Assets.Scripts
                     break;
                 case SoundType.WrapDrive:
                     SoundEffect.clip = WrapDrive;
+                    SoundEffect.loop = true;
+                    break;
+                case SoundType.InWrap:
+                    SoundEffect.clip = InWrap;
                     break;
                 case SoundType.BackgroundMusic:
                     return BackgroundMusic;
