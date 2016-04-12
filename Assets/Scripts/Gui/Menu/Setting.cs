@@ -3,12 +3,11 @@ using System.Linq;
 using Assets.Scripts.Audio;
 using Assets.Scripts.Configuration;
 using Assets.Scripts.Core;
-using Assets.Scripts.Gui.Menu;
 using Assets.Scripts.Metadata;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.Gui
+namespace Assets.Scripts.Gui.Menu
 {
     public class Setting : MonoBehaviour
     {

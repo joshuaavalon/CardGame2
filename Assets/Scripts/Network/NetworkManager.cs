@@ -9,7 +9,7 @@ using Assets.Scripts.Metadata;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Scripts
+namespace Assets.Scripts.Network
 {
     public class NetworkManager : MonoBehaviour
     {

@@ -1,4 +1,5 @@
 using Assets.Scripts.Metadata;
+using Assets.Scripts.Network;
 using UnityEngine;
 
 namespace Assets.Scripts.Gui

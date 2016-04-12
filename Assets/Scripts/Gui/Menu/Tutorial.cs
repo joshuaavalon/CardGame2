@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Assets.Scripts.Gui
+namespace Assets.Scripts.Gui.Menu
 {
     public class Tutorial : MonoBehaviour
     {
