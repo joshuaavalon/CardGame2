@@ -102,8 +102,8 @@ namespace Assets.Scripts.Core
                 case CardType.Unit:
                     _battlefield.Add(card);
                     card.Zone = ZoneType.BattleField;
-                    card.OnEnter(target);
                     Game.Publish(new CardPlayMessage(card));
+                    card.OnEnter(target);
                     return true;
                 default:
                     return false;
