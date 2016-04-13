@@ -93,11 +93,11 @@ namespace Assets.Scripts.Network
                 CreateButton.interactable = false;
                 CancelButton.interactable = true;
                 _audioControl.PlayAudioClip(AudioClipType.PrepareHyperDrive);
-                GameObject.FindGameObjectWithTag(Tag.MessageHandler).GetComponent<MessageHandler>().ShowMessage("Failed to create room");
                 CreateButton.GetComponent<ChangeMenu>().Change();
             }
             else
             {
+                GameObject.FindGameObjectWithTag(Tag.MessageHandler).GetComponent<MessageHandler>().ShowMessage("Failed to create room");
                 CreateButton.interactable = true;
             }
         }

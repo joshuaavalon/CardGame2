@@ -9,11 +9,12 @@ namespace Assets.Scripts.Gui
         public GameObject WrapJump;
         public GameObject Canvas;
         public CanvasGroupFade Fade;
+        public iTweenMoveOnPath PlayerPath;
 
         private void Start()
         {
             WrapJump.SetActive(true);
-            StartCoroutine(Wait(10F));
+            StartCoroutine(Wait(5F));
             StartCoroutine(WaitCanves(3.5F));
         }
 
@@ -21,6 +22,7 @@ namespace Assets.Scripts.Gui
         {
             yield return new WaitForSeconds(time);
             WrapJump.SetActive(false);
+            PlayerPath.enabled = true;
         }
 
         IEnumerator WaitCanves(float time)
