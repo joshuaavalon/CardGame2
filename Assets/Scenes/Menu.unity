@@ -2262,6 +2262,7 @@ GameObject:
   - 4: {fileID: 99514586}
   - 198: {fileID: 99514588}
   - 199: {fileID: 99514587}
+  - 114: {fileID: 99514589}
   m_Layer: 0
   m_Name: Particle System
   m_TagString: Untagged
@@ -3823,6 +3824,17 @@ ParticleSystem:
     subEmitterCollision1: {fileID: 0}
     subEmitterDeath: {fileID: 0}
     subEmitterDeath1: {fileID: 0}
+--- !u!114 &99514589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 99514585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1aa26e21d4f9db646a72485a21f35032, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &100930310
 GameObject:
   m_ObjectHideFlags: 0
