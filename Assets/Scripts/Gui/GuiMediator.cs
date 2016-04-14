@@ -296,10 +296,6 @@ namespace Assets.Scripts.Gui
         /// <param name="id"></param>
         public void DestoryCard(string id)
         {
-            foreach (var temp in _idDictionary)
-            {
-                Log.Verbose(temp.Key + ":" + temp.Value);
-            }
             var target = _idDictionary[id];
             Destroy(target);
             _idDictionary.Remove(id);
