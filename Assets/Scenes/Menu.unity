@@ -23942,7 +23942,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 869681521}
   - 54: {fileID: 869681520}
-  - 136: {fileID: 869681519}
   m_Layer: 0
   m_Name: PaladinBattleship
   m_TagString: Untagged
@@ -23950,19 +23949,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!136 &869681519
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 869681518}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 50
-  m_Height: 370
-  m_Direction: 2
-  m_Center: {x: 0, y: 0, z: 25}
 --- !u!54 &869681520
 Rigidbody:
   m_ObjectHideFlags: 0

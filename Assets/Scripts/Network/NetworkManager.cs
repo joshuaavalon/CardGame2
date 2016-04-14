@@ -62,7 +62,8 @@ namespace Assets.Scripts.Network
                 if (room.playerCount < 2)
                 {
                     button.interactable = true;
-                    button.onClick.AddListener(() => { PhotonNetwork.JoinRoom(room.name); });
+                    var currentRoom = room;
+                    button.onClick.AddListener(() => { PhotonNetwork.JoinRoom(currentRoom.name); });
                 }
                 else
                 {
