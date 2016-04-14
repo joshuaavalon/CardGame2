@@ -43,7 +43,8 @@ namespace Assets.Scripts.Core
         None,
         Fighter,
         Battleship,
-        Scoutship
+        Scoutship,
+        Robot
     }
 
     public enum TargetType

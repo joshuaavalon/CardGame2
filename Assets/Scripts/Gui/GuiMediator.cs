@@ -352,7 +352,9 @@ namespace Assets.Scripts.Gui
 
         public GameObject GetCardById(string id)
         {
-            return _idDictionary[id];
+            if (_idDictionary.ContainsKey(id))
+                return _idDictionary[id];
+            return null;
         }
     }
 }
