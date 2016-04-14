@@ -9,9 +9,7 @@ namespace Assets.Scripts.Core.Effect
         public UnitType Tags;
         public override void OnEnter()
         {
-            var game = Parent.Parent.Game;
-            var player = game.GetPlayer(Parent.Parent.Type);
-            var cards = player.Battlefield;
+            var cards = Parent.Parent.Battlefield;
             var counter = 0;
             foreach (var card in cards)
             {

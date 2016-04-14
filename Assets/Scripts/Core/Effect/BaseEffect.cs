@@ -10,7 +10,7 @@ namespace Assets.Scripts.Core.Effect
         {
         }
 
-        public void OnAttack()
+        public virtual void OnAttack()
         {
         }
 
