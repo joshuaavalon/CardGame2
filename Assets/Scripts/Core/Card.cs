@@ -92,7 +92,7 @@ namespace Assets.Scripts.Core
                 foreach (var effect in Effects)
                     effect.OnEnter(target);
             if (Type == CardType.Event)
-                NotifyCardDead();
+                RemoveSelf();
         }
 
         public bool CanAttack()
@@ -181,8 +181,7 @@ namespace Assets.Scripts.Core
             _stats[type] = value;
             NotifyStatsChange();
             if (type != CardStatsType.Hp || _stats[type] > 0) return;
-            Parent.Remove(this);
-            NotifyCardDead();
+            RemoveSelf();
         }
 
         private void NotifyStatsChange()
@@ -198,6 +197,12 @@ namespace Assets.Scripts.Core
         private void NotifyCardDead()
         {
             Parent.Game.Publish(new CardDeadMessage(this));
+        }
+
+        private void RemoveSelf()
+        {
+            Parent.Remove(this);
+            NotifyCardDead();
         }
     }
 }
