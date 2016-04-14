@@ -55,8 +55,8 @@ MonoBehaviour:
   Stats:
     Hp: 3
     Atk: 3
-    Metal: 1
-    Crystal: 0
+    Metal: 2
+    Crystal: 1
     Deuterium: 0
   Tags: 02000000
   Target: 0

@@ -95,7 +95,7 @@ MonoBehaviour:
     Hp: 0
     Atk: 0
     Metal: 1
-    Crystal: 0
+    Crystal: 1
     Deuterium: 0
   Tags: 
   Target: 0

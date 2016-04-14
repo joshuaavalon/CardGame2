@@ -96,11 +96,11 @@ MonoBehaviour:
   Stats:
     Hp: 0
     Atk: 0
-    Metal: 1
+    Metal: 0
     Crystal: 1
-    Deuterium: 0
+    Deuterium: 1
   Tags: 
-  Target: 2
+  Target: 3
   Type: 1
 --- !u!222 &22238342
 CanvasRenderer:

@@ -68,8 +68,8 @@ MonoBehaviour:
     Hp: 3
     Atk: 3
     Metal: 1
-    Crystal: 0
-    Deuterium: 0
+    Crystal: 1
+    Deuterium: 1
   Tags: 04000000
   Target: 0
   Type: 0
