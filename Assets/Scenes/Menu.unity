@@ -24621,7 +24621,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Card Game
+  m_Text: War of Spacecraft
 --- !u!222 &870428956
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -24896,7 +24896,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Card Game
+  m_Text: War of Spacecraft
 --- !u!222 &886135590
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -41582,7 +41582,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Card Game
+  m_Text: War of Spacecraft
 --- !u!222 &1494569297
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -41866,7 +41866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7492c328f25dd4040bc90976192d16c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  title: Card Game
+  title: War of Spacecraft
 --- !u!4 &1506550939 stripped
 Transform:
   m_PrefabParentObject: {fileID: 452690, guid: 6d6ef84ab6a21384099b4f096e5f7f6a, type: 2}
@@ -46130,7 +46130,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Card Game
+  m_Text: War of Spacecraft
 --- !u!222 &1732395530
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -46296,7 +46296,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Card Game
+  m_Text: War of Spacecraft
 --- !u!222 &1736186133
 CanvasRenderer:
   m_ObjectHideFlags: 0
