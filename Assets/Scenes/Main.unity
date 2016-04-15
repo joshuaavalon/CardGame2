@@ -5139,8 +5139,8 @@ MonoBehaviour:
   Speed: 6
   Looktime: 5
   EaseType: 14
-  LoopType: 0
-  Orienttopath: 0
+  LoopType: 1
+  Orienttopath: 1
 --- !u!114 &1023865845
 MonoBehaviour:
   m_ObjectHideFlags: 0
