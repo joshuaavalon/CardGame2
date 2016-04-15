@@ -18,6 +18,7 @@ namespace Assets.Scripts.Gui.Menu
         public Slider BgmSlider;
         public YesNoWindow ChangeApplyWindow;
         public Dropdown GraphicQuality;
+        public Dropdown NumberOfShip;
         public Dropdown Resolution;
         public Slider SoundEffectSlider;
 
@@ -28,6 +29,7 @@ namespace Assets.Scripts.Gui.Menu
             _audioControl = GameObject.FindGameObjectWithTag(Tag.Audio).GetComponent<AudioControl>();
             Resolution.AddOptions(_resolutions.Select(res => res.ToString().Split('@')[0]).ToList());
             GraphicQuality.AddOptions(QualitySettings.names.ToList());
+            NumberOfShip.AddOptions(new[] {"0", "1", "2", "3", "4", "5", "6", "7"}.ToList());
             Load();
             BgmSlider.onValueChanged.AddListener(value =>
             {
@@ -45,6 +47,8 @@ namespace Assets.Scripts.Gui.Menu
                     Screen.SetResolution(_resolutions[index].width, _resolutions[index].height, Screen.fullScreen);
                     _valueChanged = true;
                 });
+            NumberOfShip.onValueChanged.AddListener(
+                index => { _valueChanged = true; });
             GraphicQuality.onValueChanged.AddListener(level =>
             {
                 QualitySettings.SetQualityLevel(level, true);
@@ -74,6 +78,7 @@ namespace Assets.Scripts.Gui.Menu
                 width = Screen.width,
                 refreshRate = Screen.currentResolution.refreshRate
             };
+            _config.NumberOfShip = NumberOfShip.value;
             _valueChanged = false;
         }
 
@@ -83,6 +88,7 @@ namespace Assets.Scripts.Gui.Menu
             GraphicQuality.value = _config.GraphicQualityLevel;
             BgmSlider.value = _config.BackgroundMusicVolume;
             SoundEffectSlider.value = _config.SoundEffectVolume;
+            NumberOfShip.value = _config.NumberOfShip;
         }
 
         public void CheckApplyValue()

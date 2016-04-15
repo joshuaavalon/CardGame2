@@ -16,7 +16,7 @@ namespace Assets.Scripts.Gui
 
         private void OnEnable()
         {
-            iTween.MoveTo(gameObject, iTween.Hash("path", Path.nodes.ToArray(),
+            iTween.MoveTo(gameObject, iTween.Hash("path", Path.Nodes.ToArray(),
                 "speed", Speed, "easetype", EaseType, "orienttopath", Orienttopath, 
                 "delay", Delay, "looptype", LoopType, "looktime", Looktime));
         }

@@ -37,10 +37,10 @@ public class iTweenPathEditor : Editor
 		_target = (iTweenPath)target;
 		
 		//lock in a default path name:
-		if(!_target.initialized){
-			_target.initialized = true;
-			_target.pathName = "New Path " + ++count;
-			_target.initialName = _target.pathName;
+		if(!_target.Initialized){
+			_target.Initialized = true;
+			_target.PathName = "New Path " + ++count;
+			_target.InitialName = _target.PathName;
 		}
 	}
 	
@@ -48,53 +48,43 @@ public class iTweenPathEditor : Editor
 		//draw the path?
 		EditorGUILayout.BeginHorizontal();
 		EditorGUILayout.PrefixLabel("Path Visible");
-		_target.pathVisible = EditorGUILayout.Toggle(_target.pathVisible);
+		_target.PathVisible = EditorGUILayout.Toggle(_target.PathVisible);
 		EditorGUILayout.EndHorizontal();
 		
 		//path name:
 		EditorGUILayout.BeginHorizontal();
 		EditorGUILayout.PrefixLabel("Path Name");
-		_target.pathName = EditorGUILayout.TextField(_target.pathName);
+		_target.PathName = EditorGUILayout.TextField(_target.PathName);
 		EditorGUILayout.EndHorizontal();
 		
-		if(_target.pathName == ""){
-			_target.pathName = _target.initialName;
+		if(_target.PathName == ""){
+			_target.PathName = _target.InitialName;
 		}
 		
 		//path color:
 		EditorGUILayout.BeginHorizontal();
 		EditorGUILayout.PrefixLabel("Path Color");
-		_target.pathColor = EditorGUILayout.ColorField(_target.pathColor);
+		_target.PathColor = EditorGUILayout.ColorField(_target.PathColor);
 		EditorGUILayout.EndHorizontal();
 		
 		//exploration segment count control:
 		EditorGUILayout.BeginHorizontal();
 		//EditorGUILayout.PrefixLabel("Node Count");
-		_target.nodeCount = Mathf.Max(2, EditorGUILayout.IntField("Node Count", _target.nodeCount));
+		_target.NodeCount = Mathf.Max(2, EditorGUILayout.IntField("Node Count", _target.NodeCount));
 		//_target.nodeCount =  Mathf.Clamp(EditorGUILayout.IntSlider(_target.nodeCount, 0, 10), 2,100);
 		EditorGUILayout.EndHorizontal();
 		
 		//add node?
-		if(_target.nodeCount > _target.nodes.Count){
-			for (int i = 0; i < _target.nodeCount - _target.nodes.Count; i++) {
-				_target.nodes.Add(Vector3.zero);	
-			}
-		}
-	
-		//remove node?
-		if(_target.nodeCount < _target.nodes.Count){
-			if(EditorUtility.DisplayDialog("Remove path node?","Shortening the node list will permantently destory parts of your path. This operation cannot be undone.", "OK", "Cancel")){
-				int removeCount = _target.nodes.Count - _target.nodeCount;
-				_target.nodes.RemoveRange(_target.nodes.Count-removeCount,removeCount);
-			}else{
-				_target.nodeCount = _target.nodes.Count;	
+		if(_target.NodeCount > _target.Nodes.Count){
+			for (int i = 0; i < _target.NodeCount - _target.Nodes.Count; i++) {
+				_target.Nodes.Add(Vector3.zero);	
 			}
 		}
 				
 		//node display:
 		EditorGUI.indentLevel = 4;
-		for (int i = 0; i < _target.nodes.Count; i++) {
-			_target.nodes[i] = EditorGUILayout.Vector3Field("Node " + (i+1), _target.nodes[i]);
+		for (int i = 0; i < _target.Nodes.Count; i++) {
+			_target.Nodes[i] = EditorGUILayout.Vector3Field("Node " + (i+1), _target.Nodes[i]);
 		}
 		
 		//update and redraw:
@@ -104,18 +94,18 @@ public class iTweenPathEditor : Editor
 	}
 	
 	void OnSceneGUI(){
-		if(_target.pathVisible){			
-			if(_target.nodes.Count > 0){
+		if(_target.PathVisible){			
+			if(_target.Nodes.Count > 0){
 				//allow path adjustment undo:
                 Undo.RecordObject(_target, "Adjust iTween Path");
 				
 				//path begin and end labels:
-				Handles.Label(_target.nodes[0], "'" + _target.pathName + "' Begin", style);
-				Handles.Label(_target.nodes[_target.nodes.Count-1], "'" + _target.pathName + "' End", style);
+				Handles.Label(_target.Nodes[0], "'" + _target.PathName + "' Begin", style);
+				Handles.Label(_target.Nodes[_target.Nodes.Count-1], "'" + _target.PathName + "' End", style);
 				
 				//node handle display:
-				for (int i = 0; i < _target.nodes.Count; i++) {
-					_target.nodes[i] = Handles.PositionHandle(_target.nodes[i], Quaternion.identity);
+				for (int i = 0; i < _target.Nodes.Count; i++) {
+					_target.Nodes[i] = Handles.PositionHandle(_target.Nodes[i], Quaternion.identity);
 				}	
 			}	
 		}

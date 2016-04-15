@@ -8,5 +8,6 @@ namespace Assets.Scripts.Metadata
         public static readonly string ScreenHeight = "ScreenHeight";
         public static readonly string GraphicQuality = "GraphicQuality";
         public static readonly string SoundEffectVolume = "SoundEffectVolume";
+        public static readonly string NumberOfShip = "NumberOfShip";
     }
 }

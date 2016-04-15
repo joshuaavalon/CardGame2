@@ -7,21 +7,16 @@ namespace Assets.Scripts.Gui.Animation
         private TargetList _list;
         public float Distance;
         public int Group;
-        private IAimable[] _weapons;
+        public Transform Target;
 
         private void Start()
         {
             _list = GetComponentInParent<TargetList>();
-            _weapons = GetComponentsInChildren<IAimable>();
         }
 
         private void Update()
         {
-            var target = GetTarget();
-            foreach (var weapon in _weapons)
-            {
-                weapon.SetTarget(target);
-            }
+            Target = GetTarget();
         }
 
         private Transform GetTarget()
@@ -31,7 +26,7 @@ namespace Assets.Scripts.Gui.Animation
             var minDistance = Distance + 1;
             foreach (var target in _list.ShipList)
             {
-                if(Group == target.Group) continue;
+                if(target == null || Group == target.Group) continue;
                 var targetTransform = target.GetComponent<Transform>();
                 var distance = Vector3.Distance(position, targetTransform.position);
                 if (distance > Distance || distance > minDistance) continue;

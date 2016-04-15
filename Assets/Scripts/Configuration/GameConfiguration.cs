@@ -13,6 +13,7 @@ namespace Assets.Scripts.Configuration
         private static GameConfiguration _instance;
         private float _backgroundMusicVolume;
         private int _graphicQualityLevel;
+        private int _numberOfShip;
         private Resolution _resolution;
         private float _soundEffectVolume;
 
@@ -24,6 +25,8 @@ namespace Assets.Scripts.Configuration
             QualitySettings.SetQualityLevel(level, true);
             PlayerPrefs.SetInt(PlayerPrefKey.GraphicQuality, level);
         };
+
+        public Action<int> OnNumberOfShipChange = number => { PlayerPrefs.SetInt(PlayerPrefKey.NumberOfShip, number); };
 
         public Action<Resolution> OnResolutionChange = resolution =>
         {
@@ -39,6 +42,17 @@ namespace Assets.Scripts.Configuration
         {
             Initial();
             Load();
+        }
+
+        public int NumberOfShip
+        {
+            get { return _numberOfShip; }
+            set
+            {
+                if (_numberOfShip == value) return;
+                _numberOfShip = value;
+                OnNumberOfShipChange(_numberOfShip);
+            }
         }
 
         public int GraphicQualityLevel
@@ -85,6 +99,7 @@ namespace Assets.Scripts.Configuration
             }
         }
 
+
         public static GameConfiguration Get()
         {
             if (_instance == null)
@@ -105,6 +120,8 @@ namespace Assets.Scripts.Configuration
             }
             if (!PlayerPrefs.HasKey(PlayerPrefKey.GraphicQuality))
                 PlayerPrefs.SetInt(PlayerPrefKey.GraphicQuality, QualitySettings.GetQualityLevel());
+            if (!PlayerPrefs.HasKey(PlayerPrefKey.NumberOfShip))
+                PlayerPrefs.SetInt(PlayerPrefKey.NumberOfShip, 3);
         }
 
         private void Load()
@@ -118,6 +135,7 @@ namespace Assets.Scripts.Configuration
                 refreshRate = Screen.currentResolution.refreshRate
             };
             GraphicQualityLevel = PlayerPrefs.GetInt(PlayerPrefKey.GraphicQuality);
+            NumberOfShip = PlayerPrefs.GetInt(PlayerPrefKey.NumberOfShip);
         }
     }
 }
