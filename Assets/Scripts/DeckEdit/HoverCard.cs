@@ -29,7 +29,7 @@ namespace Assets.Scripts.DeckEdit
             if (IsThumb)
             {
                 x = transform.localPosition.x + 700;
-                y = transform.localPosition.y + (vector.y < -220 ? 875 : 450);
+                y = transform.localPosition.y + (vector.y < 300 ? 875 : 450);
             }
             else
             {

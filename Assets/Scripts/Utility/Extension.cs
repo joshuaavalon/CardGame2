@@ -112,9 +112,7 @@ namespace Assets.Scripts.Utility
             angle = angle.NormalizeAngle(180);
             min = min.NormalizeAngle(180);
             max = max.NormalizeAngle(180);
-            Debug.Log(angle+":"+ min+":"+max);
             angle = Mathf.Clamp(angle, min, max);
-            Debug.Log(angle + ":" + min + ":" + max);
             return angle.NormalizeAngle(180);
         }
 

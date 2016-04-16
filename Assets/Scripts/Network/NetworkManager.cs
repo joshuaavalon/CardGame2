@@ -152,7 +152,7 @@ namespace Assets.Scripts.Network
             ButtonCheck();
         }
 
-        private void ButtonCheck()
+        public void ButtonCheck()
         {
             var interactable = Deck.Get().EnoughCard() && PhotonNetwork.insideLobby;
             if (NewButton != null)

@@ -1434,7 +1434,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 11497658, guid: f6535dbeeecafc6498dba8aaea0046b3, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 22449152, guid: f6535dbeeecafc6498dba8aaea0046b3, type: 2}
       propertyPath: m_LocalPosition.x
@@ -1559,6 +1559,26 @@ Prefab:
     - target: {fileID: 11465586, guid: f6535dbeeecafc6498dba8aaea0046b3, type: 2}
       propertyPath: AudioType
       value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 11497658, guid: f6535dbeeecafc6498dba8aaea0046b3, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11497658, guid: f6535dbeeecafc6498dba8aaea0046b3, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 11497658, guid: f6535dbeeecafc6498dba8aaea0046b3, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 1989405787}
+    - target: {fileID: 11497658, guid: f6535dbeeecafc6498dba8aaea0046b3, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: ButtonCheck
+      objectReference: {fileID: 0}
+    - target: {fileID: 11497658, guid: f6535dbeeecafc6498dba8aaea0046b3, type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}

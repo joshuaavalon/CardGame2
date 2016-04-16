@@ -48,7 +48,7 @@ namespace Assets.Scripts.Core
 
         public int RequireCard()
         {
-            return 5;
+            return 15;
         }
 
         public int MaxOfSingle()
