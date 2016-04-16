@@ -27,7 +27,7 @@ namespace Assets.Scripts.Network
 
         private void Start()
         {
-            PhotonNetwork.ConnectUsingSettings("0.5");
+            PhotonNetwork.ConnectUsingSettings("1.0");
             DeckHandler.LoadFromSaveToDeck();
             _audioControl = GameObject.FindGameObjectWithTag(Tag.Audio).GetComponent<AudioControl>();
             ButtonCheck();

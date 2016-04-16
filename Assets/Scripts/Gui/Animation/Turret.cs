@@ -11,7 +11,9 @@ namespace Assets.Scripts.Gui.Animation
         public float Charge = 1f;
         public Transform Gun;
         public float MaxmimumHorizontalAngle = 60;
+        public float MaxmimumLowHorizontalAngle = 60;
         public float MaxmimumVerticalAngle = 30;
+        public float MaxmimumLowVerticalAngle = 30;
         public float RotateSpeed = 1;
         public Transform Spwan;
         public float Damage;
@@ -29,8 +31,12 @@ namespace Assets.Scripts.Gui.Animation
                 Time.deltaTime*RotateSpeed);
             Gun.transform.localRotation = new Quaternion(Gun.transform.localRotation.x, Gun.transform.localRotation.y,
                 Quaternion.identity.z, Gun.transform.localRotation.w);
-            var angleX = Gun.transform.localEulerAngles.x.ClampAngle(-MaxmimumVerticalAngle, MaxmimumVerticalAngle);
-            var angleY = Gun.transform.localEulerAngles.y.ClampAngle(-MaxmimumHorizontalAngle, MaxmimumHorizontalAngle);
+            if(name.Equals("turret-01_Z (1)")) 
+            Debug.Log(Gun.transform.localEulerAngles);
+            var angleX = Gun.transform.localEulerAngles.x.ClampAngle(-MaxmimumVerticalAngle, -MaxmimumLowVerticalAngle);
+            var angleY = Gun.transform.localEulerAngles.y.ClampAngle(MaxmimumLowHorizontalAngle, MaxmimumHorizontalAngle);
+            if(name.Equals("turret-01_Z (1)")) 
+                Debug.Log(angleX+":"+ angleY);
             Gun.transform.localEulerAngles = new Vector3(angleX, angleY, Gun.transform.localEulerAngles.z);
 
             if (_coolDown >= Charge)

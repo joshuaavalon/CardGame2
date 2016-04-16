@@ -351,7 +351,9 @@ MonoBehaviour:
   Charge: 5
   Gun: {fileID: 441804}
   MaxmimumHorizontalAngle: 90
-  MaxmimumVerticalAngle: 30
+  MaxmimumLowHorizontalAngle: -90
+  MaxmimumVerticalAngle: 50
+  MaxmimumLowVerticalAngle: -50
   RotateSpeed: 30
   Spwan: {fileID: 434526}
   Damage: 0

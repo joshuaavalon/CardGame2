@@ -350,8 +350,10 @@ MonoBehaviour:
   Bolt: {fileID: 178674, guid: 7a8c093d1c628f74d9fd5e5bb30a816c, type: 2}
   Charge: 3
   Gun: {fileID: 430962}
-  MaxmimumHorizontalAngle: 80
-  MaxmimumVerticalAngle: 30
+  MaxmimumHorizontalAngle: 100
+  MaxmimumLowHorizontalAngle: -100
+  MaxmimumVerticalAngle: 40
+  MaxmimumLowVerticalAngle: -40
   RotateSpeed: 40
   Spwan: {fileID: 457844}
   Damage: 0

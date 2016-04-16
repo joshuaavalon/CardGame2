@@ -961,7 +961,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 189130}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 10, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 454482}
@@ -1679,8 +1679,10 @@ MonoBehaviour:
   Bolt: {fileID: 131348, guid: 9d7637342cbaa90479a36fef6817a25a, type: 2}
   Charge: 3
   Gun: {fileID: 476554}
-  MaxmimumHorizontalAngle: 80
-  MaxmimumVerticalAngle: 30
+  MaxmimumHorizontalAngle: 100
+  MaxmimumLowHorizontalAngle: -100
+  MaxmimumVerticalAngle: 40
+  MaxmimumLowVerticalAngle: -40
   RotateSpeed: 40
   Spwan: {fileID: 451048}
   Damage: 0
@@ -1734,8 +1736,10 @@ MonoBehaviour:
   Bolt: {fileID: 131348, guid: 9d7637342cbaa90479a36fef6817a25a, type: 2}
   Charge: 3
   Gun: {fileID: 445920}
-  MaxmimumHorizontalAngle: 80
-  MaxmimumVerticalAngle: 30
+  MaxmimumHorizontalAngle: 100
+  MaxmimumLowHorizontalAngle: -100
+  MaxmimumVerticalAngle: 40
+  MaxmimumLowVerticalAngle: -40
   RotateSpeed: 40
   Spwan: {fileID: 408706}
   Damage: 0

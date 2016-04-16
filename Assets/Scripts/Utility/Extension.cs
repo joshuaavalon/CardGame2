@@ -109,15 +109,23 @@ namespace Assets.Scripts.Utility
 
         public static float ClampAngle(this float angle, float min, float max)
         {
-            if (angle < 90 || angle > 270)
-            {
-                if (angle > 180) angle -= 360;
-                if (min > 180) min -= 360;
-                if (max > 180) max -= 360;
-            }
+            angle = angle.NormalizeAngle(180);
+            min = min.NormalizeAngle(180);
+            max = max.NormalizeAngle(180);
+            Debug.Log(angle+":"+ min+":"+max);
             angle = Mathf.Clamp(angle, min, max);
-            if (angle < 0) angle += 360;
-            return angle;
+            Debug.Log(angle + ":" + min + ":" + max);
+            return angle.NormalizeAngle(180);
+        }
+
+        public static float NormalizeAngle(this float angle , float boundary=360)
+        {
+            var newAngle = angle;
+            if (boundary > 360 || boundary < 0)
+                boundary = NormalizeAngle(boundary);
+            while (newAngle <= -(360 - boundary)) newAngle += 360;
+            while (newAngle > boundary) newAngle -= 360;
+            return newAngle;
         }
     }
 }

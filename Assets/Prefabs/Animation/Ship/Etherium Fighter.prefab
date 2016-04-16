@@ -130,7 +130,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1 &145554
 GameObject:
   m_ObjectHideFlags: 1
@@ -1264,8 +1264,10 @@ MonoBehaviour:
   Bolt: {fileID: 136864, guid: ce4f2b6156f97d343b10449dcb455d81, type: 2}
   Charge: 1
   Gun: {fileID: 499818}
-  MaxmimumHorizontalAngle: 80
-  MaxmimumVerticalAngle: 45
+  MaxmimumHorizontalAngle: 90
+  MaxmimumLowHorizontalAngle: -90
+  MaxmimumVerticalAngle: 75
+  MaxmimumLowVerticalAngle: 0
   RotateSpeed: 50
   Spwan: {fileID: 490790}
   Damage: 0.1
