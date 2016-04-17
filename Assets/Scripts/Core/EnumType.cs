@@ -71,6 +71,11 @@ namespace Assets.Scripts.Core
         PrepareHyperDrive = 11,
         AccessDenied = 12,
         ActiveHyperDrive = 13,
-        WrapDrive = 14
+        WrapDrive = 14,
+        Explosion1 = 15,
+        Explosion2 = 16,
+        Laser = 17,
+        Beam = 18,
+        WrapIn = 19
     }
 }

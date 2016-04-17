@@ -13,6 +13,8 @@ namespace Assets.Scripts.Gui.Animation
         public float Radius = 200;
         public int ShipCount = 5;
         private TargetList _targetList;
+        public float SearchCoolDown = 1F;
+        private float _timespan;
 
         private void Start()
         {
@@ -22,18 +24,11 @@ namespace Assets.Scripts.Gui.Animation
 
         private void Update()
         {
-            var zero = 0;
-            var one = 0;
-            foreach (var radar in _targetList.ShipList)
-            {
-                if (radar.Group == 0)
-                    zero++;
-                else
-                    one++;
-            }
-            if (zero < ShipCount)
+            _timespan += Time.deltaTime;
+            if (!(_timespan > SearchCoolDown)) return;
+            if (_targetList.GetRadars(0).Count < ShipCount)
                 SpwanShip(true);
-            if (one < ShipCount)
+            if (_targetList.GetRadars(1).Count < ShipCount)
                 SpwanShip(false);
         }
 

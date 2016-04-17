@@ -29,6 +29,7 @@ GameObject:
   - 199: {fileID: 19918690}
   - 114: {fileID: 11451486}
   - 114: {fileID: 11463592}
+  - 114: {fileID: 11460422}
   m_Layer: 0
   m_Name: Explosion_001
   m_TagString: Untagged
@@ -372,6 +373,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe9a4398eccd6e14db7743a5009284e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &11460422
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 102548}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b67624f5a71ecd439290d6b30227ede, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AudioType: 15
+  PlayOnAwake: 0
+  PlayOnStart: 1
+  PlayOnDestroy: 0
+  PlayOnEnable: 0
+  PlayOnDisable: 0
 --- !u!114 &11463592
 MonoBehaviour:
   m_ObjectHideFlags: 1
