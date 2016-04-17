@@ -11,17 +11,15 @@ namespace Assets.Scripts.Gui.Animation
         private void Start()
         {
             ShipList = new Dictionary<int, IList<Radar>>();
-            var list = GetComponentsInChildren<Radar>();
-            foreach (var radar in list)
-            {
-                AddRadar(radar);
-            }
         }
 
         public void AddRadar(Radar radar)
         {
             if (ShipList.ContainsKey(radar.Group))
-                ShipList[radar.Group].Add(radar);
+            {
+                if (!ShipList[radar.Group].Contains(radar))
+                    ShipList[radar.Group].Add(radar);
+            }
             else
                 ShipList.Add(radar.Group, new List<Radar> {radar});
         }
