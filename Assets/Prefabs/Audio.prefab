@@ -152,6 +152,8 @@ MonoBehaviour:
     AudioClip: {fileID: 8300000, guid: 2b775f9113489134c84023d70c4b776d, type: 3}
   - Label: 18
     AudioClip: {fileID: 8300000, guid: 4bfdb98827ff5484db32f54393100b6a, type: 3}
+  - Label: 1
+    AudioClip: {fileID: 8300000, guid: b099d639d0ed86640be28be6821e240a, type: 3}
   - Label: 19
     AudioClip: {fileID: 8300000, guid: 0bbecbb60ce66294783e31d1bd7d25a3, type: 3}
 --- !u!1001 &100100000

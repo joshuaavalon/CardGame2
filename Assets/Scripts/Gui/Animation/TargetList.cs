@@ -5,7 +5,6 @@ namespace Assets.Scripts.Gui.Animation
 {
     public class TargetList : MonoBehaviour
     {
-        //public Radar[] ShipList;
         public Dictionary<int, IList<Radar>> ShipList;
 
         private void Start()

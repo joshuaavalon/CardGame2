@@ -67,13 +67,10 @@ $RECYCLE.BIN/
 *.lnk
 
 
-/Assets/FORGE3D
-/Assets/SpaceD UGUI/
 /Assets/Skybox/
 /Assets/Audio/
 /Assets/Photon Unity Networking/
 /Assets/Plugins/
 /Assets/Meshes/
-/Assets/Sector3D/
+/Assets/Textures/
 /Assets/Tiinoo/
-/Assets/Jet stream FX/
